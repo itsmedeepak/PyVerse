@@ -1,51 +1,53 @@
 from time import time
-def tperror(prompt):
-   global inwords
-   words=prompt.split()
-   errors=0
-   for i in range(len(inwords)):
-    if i in (0,len(inwords)-1):
-      if inwords[i]==words[i]:
-        continue
-      else:
-       errors=errors+1
-    else:
-      if inwords[i]==words[i]:
-        if(inwords[i+1]==words[i+1])& (inwords[i-1]==words[i-1]):
-         continue
-        else:
-         errors+=1
-      else:
-       errors+=1
+
+def count_errors(original, typed):
+    original_words = original.split()
+    typed_words = typed.split()
+    errors = 0
+
+    for i in range(len(original_words)):
+        if i >= len(typed_words) or original_words[i] != typed_words[i]:
+            errors += 1
+
+    # count extra typed words as errors
+    if len(typed_words) > len(original_words):
+        errors += len(typed_words) - len(original_words)
+
     return errors
 
-def speed(inprompt,stime,etime):
- global time
- global inwords
+def typing_speed(typed_words, elapsed_time):
+    # speed in words per minute
+    speed_wpm = (len(typed_words.split()) / elapsed_time) * 60
+    return round(speed_wpm, 2)
 
- inwords=inprompt.split()
- twords=len(inwords)
- speed=twords/time
- return speed
-
-
-def elapsedtime(stime,etime):
- time=etime-stime
- return time
+def elapsed_time(start, end):
+    return round(end - start, 2)
 
 if __name__ == '__main__':
- prompt="Python is a high-level, general-purpose programming language. Its design philosophy emphasizes code readability with the use of significant indentation.Python is dynamically-typed and garbage-collected. It supports multiple programming paradigms, including structured (particularly procedural), object-oriented and functional programming. It is often described as a batteries included language due to its comprehensive standard library."
- print("Type this->",prompt," ")
- input("Press Enter to check speed")
+    prompt = ("Python is a high-level, general-purpose programming language. "
+              "Its design philosophy emphasizes code readability with the use of significant indentation. "
+              "Python is dynamically-typed and garbage-collected. "
+              "It supports multiple programming paradigms, including structured, object-oriented and functional programming.")
 
- stime=time()
- inprompt=input()
- etime=time()
+    while True:
+        print("\nType the following prompt:\n")
+        print(prompt, "\n")
+        input("Press Enter when ready to start...")
 
- time=round(elapsedtime(stime,etime),2)
- speed=speed(inprompt,stime,etime)
- errors=tperror(prompt)
+        start_time = time()
+        typed_input = input("\nStart typing here: ")
+        end_time = time()
 
- print("Total time elapsed: ",time,"seconds")
- print("Your avg typing speed is ",speed,"words per minute")
- print("with ",errors,"errors")
+        total_time = elapsed_time(start_time, end_time)
+        speed = typing_speed(typed_input, total_time)
+        errors = count_errors(prompt, typed_input)
+
+        print("\n--- Results ---")
+        print(f"Total time elapsed: {total_time} seconds")
+        print(f"Your typing speed: {speed} words per minute")
+        print(f"Total errors: {errors}")
+
+        retry = input("\nDo you want to try again? (y/n): ").lower()
+        if retry != 'y':
+            print("Thanks for playing! 👋")
+            break
