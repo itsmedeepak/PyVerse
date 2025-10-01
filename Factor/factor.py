@@ -1,7 +1,5 @@
-a=int(input("Enter your number : "))
+a=int(input("Enter a number : "))
 print(f"factors of {a} are : ")
-n=int(a/2)
-for i in range(1,n+1):
+for i in range(a):
     if(a%i==0):
         print(i)
-print(a)
