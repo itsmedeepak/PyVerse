@@ -28,3 +28,6 @@
 - Collage name : CV Raman
 
 <br>
+
+- Name: Sumedh Udupa
+- College Name: RVCE
