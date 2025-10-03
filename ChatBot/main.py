@@ -73,3 +73,6 @@ while True:
     predicted_class = predict_class(message)
     res = get_response(predicted_class, intents)
     print(res)
+
+  
+print(res)

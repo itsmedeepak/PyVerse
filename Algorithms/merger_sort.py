@@ -9,7 +9,7 @@ def mergeSort(arr):
         L = arr[:mid]
         R = arr[mid:]
 
-        mergeSort(L)   #Divide and conquer
+        mergeSort(L)  
         mergeSort(R)   #Divide and conquer
 
         i = j = k = 0

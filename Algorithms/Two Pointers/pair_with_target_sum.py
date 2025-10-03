@@ -28,3 +28,5 @@ arr = [2, 2, 5, 9, 11]
 target=4
 obj = TwoPointer()
 print(obj.pairWithTargetSumHash(arr, target))
+
+# target sum problem

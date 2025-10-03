@@ -8,3 +8,5 @@ def newFun(m, n, y):
     return latest(genFun(m,n)* y) 
 
 print(newFun(2,2, 4))
+
+#  linkedListCycle

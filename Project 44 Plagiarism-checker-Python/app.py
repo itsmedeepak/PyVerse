@@ -32,3 +32,5 @@ def check_plagiarism():
 
 for data in check_plagiarism():
     print(data)
+
+# main 

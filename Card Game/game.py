@@ -5,7 +5,7 @@ class Card:
     suits = ["spades",
              "hearts",
              "diamonds",
-             "clubs"]
+             "club"]
 
     values = [None, None, "2", "3",
               "4", "5", "6", "7",

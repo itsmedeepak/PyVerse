@@ -1,8 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
 
-# Function to get Movie Details
-
 
 def getMovieDetails(movieName):
     # Base URL of IMDB website

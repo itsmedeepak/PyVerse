@@ -9,7 +9,7 @@ def removeDuplicates(arr):
         
    
         
-
+# dublicate removal
 
 arr = [2, 3, 3, 3, 6, 9, 9]
 print(removeDuplicates(arr))

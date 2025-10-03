@@ -39,3 +39,4 @@ alist = [int(x) for x in alist]
 heapsort(alist)
 print('Sorted list: ', end='')
 print(alist)
+print(alist)
