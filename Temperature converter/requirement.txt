@@ -1,0 +1,4 @@
+Requirements
+
+1. Python 3.x
+2. Tkinter (standard library, no additional installation needed)
