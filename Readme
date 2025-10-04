@@ -1,0 +1,88 @@
+# 🏏 Terminal Cricket Game
+
+A simple interactive **cricket game** (Player vs CPU) written in Python.
+Play in your terminal and enjoy a quick over-based match!
+
+---
+
+## 🚀 Features
+
+* Play **against the computer** with randomized bowling & batting choices.
+* Support for **custom overs**.
+* **Second innings chase mode** with live commentary.
+* Fun **ball-by-ball simulation** with slow text output.
+* Clean, modular Python code.
+
+---
+
+## 📂 Project Structure
+
+```
+cricket.py    # Main game file
+```
+
+---
+
+## 🔧 Requirements
+
+* Python **3.7+**
+* No external dependencies (uses only `random` and `time`)
+
+---
+
+## ▶️ How to Play
+
+1. Clone this repository:
+
+   ```bash
+   git clone https://github.com/your-username/cricket-game.git
+   cd cricket-game
+   ```
+2. Run the game:
+
+   ```bash
+   python cricket.py
+   ```
+3. Follow on-screen instructions to bat or bowl against the CPU.
+
+---
+
+## 🎮 Gameplay Rules
+
+* You will choose either to **bat** or **bowl** first.
+* For each ball, select a number (e.g., `0–6`) and the CPU will also choose.
+* If both numbers match → **Wicket falls!**
+* Otherwise → Runs are added to the score.
+* The second innings is a **chase**: reach the target before overs run out.
+
+---
+
+## 📸 Example Run
+
+```
+Welcome to the Cricket Game!
+Choose your role (bat/bowl): bat
+You are batting for 2 overs.
+Ball 1: Enter your shot (0–6): 4
+CPU bowled: 2 → You scored 4 runs!
+...
+```
+
+---
+
+## 🛠️ Customization
+
+You can edit:
+
+* **Overs per match** in the code.
+* **Delay speed** in commentary (`slowprint`).
+
+---
+
+## 📜 License
+
+This project is open-source under the [MIT License](LICENSE).
+
+---
+
+Enjoy the game and feel free to contribute! ⚡
