@@ -1,0 +1,51 @@
+# ==============================
+# Project: Rock Paper Scissors Game
+# Author: Anurodh Kumar (idabora)
+# Description: A terminal-based Rock Paper Scissors game
+# ==============================
+
+# ------------------------------
+# Core Requirements
+# ------------------------------
+# Python Standard Library modules are used (no external libs)
+# So no third-party dependencies needed for core logic
+
+# Random module (standard library)
+# Used for generating random actions between Rock, Paper, Scissor
+# import random
+
+# ------------------------------
+# Python Version
+# ------------------------------
+# Ensure compatibility with modern Python versions
+python_version >= 3.8
+
+# ------------------------------
+# (Optional) Development Tools
+# ------------------------------
+
+# For formatting code (optional)
+black==24.4.2
+
+# For linting / code quality checks (optional)
+flake8==7.1.1
+
+# For static type checking (optional)
+mypy==1.11.2
+
+# For running unit tests (optional)
+pytest==8.3.2
+
+# For code coverage reporting during testing (optional)
+pytest-cov==5.0.0
+
+# ------------------------------
+# (Optional) CLI Enhancements
+# ------------------------------
+# For better terminal interface (optional, not used by default)
+rich==13.9.1    # Pretty console printing (optional)
+colorama==0.4.6 # Colorized CLI text on Windows/Linux (optional)
+
+# ------------------------------
+# End of File
+# ------------------------------
