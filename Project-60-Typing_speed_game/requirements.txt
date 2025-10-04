@@ -1,0 +1,8 @@
+# Typing Speed Game - Requirements
+
+This project uses only Python's standard library. No external packages are required.
+ Recommended Python version: 3.8 or higher
+
+# How to run:
+ 1. Ensure Python is installed.
+ 2. Run the script using: python typing_speed_game.py
