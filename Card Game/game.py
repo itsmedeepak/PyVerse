@@ -1,20 +1,12 @@
-from random import shuffle
+from random import shuffle, random
 
 
 class Card:
-    suits = ["spades",
-             "hearts",
-             "diamonds",
-             "clubs"]
-
-    values = [None, None, "2", "3",
-              "4", "5", "6", "7",
-              "8", "9", "10",
-              "Jack", "Queen",
-              "King", "Ace"]
+    suits = ["spades", "hearts", "diamonds", "clubs"]
+    values = [None, None, "2", "3", "4", "5", "6", "7",
+              "8", "9", "10", "Jack", "Queen", "King", "Ace"]
 
     def __init__(self, v, s):
-        """suit + value are ints"""
         self.value = v
         self.suit = s
 
@@ -22,37 +14,23 @@ class Card:
         if self.value < c2.value:
             return True
         if self.value == c2.value:
-            if self.suit < c2.suit:
-                return True
-            else:
-                return False
+            return self.suit < c2.suit
         return False
 
     def __gt__(self, c2):
         if self.value > c2.value:
             return True
         if self.value == c2.value:
-            if self.suit > c2.suit:
-                return True
-            else:
-                return False
+            return self.suit > c2.suit
         return False
 
     def __repr__(self):
-        v = self.values[self.value] +\
-            " of " + \
-            self.suits[self.suit]
-        return v
+        return f"{self.values[self.value]} of {self.suits[self.suit]}"
 
 
 class Deck:
     def __init__(self):
-        self.cards = []
-        for i in range(2, 15):
-            for j in range(4):
-                self.cards\
-                    .append(Card(i,
-                                 j))
+        self.cards = [Card(i, j) for i in range(2, 15) for j in range(4)]
         shuffle(self.cards)
 
     def rm_card(self):
@@ -62,50 +40,53 @@ class Deck:
 
 
 class Player:
-    def __init__(self, name):
+    def __init__(self, name, is_ai=False):
         self.wins = 0
         self.card = None
         self.name = name
+        self.is_ai = is_ai  # flag for AI player
 
 
 class Game:
     def __init__(self):
-        name1 = input("p1 name ")
-        name2 = input("p2 name ")
+        name1 = input("Enter Player 1 name: ")
+        name2 = input("Enter Player 2 name (or type 'AI' for computer): ")
         self.deck = Deck()
         self.p1 = Player(name1)
-        self.p2 = Player(name2)
+        # if name2 is "AI", create an AI player
+        self.p2 = Player(name2, is_ai=(name2.lower() == "ai"))
 
     def wins(self, winner):
-        w = "{} wins this round"
-        w = w.format(winner)
-        print(w)
+        print(f"{winner} wins this round")
 
     def draw(self, p1n, p1c, p2n, p2c):
-        d = "{} drew {} {} drew {}"
-        d = d.format(p1n,
-                     p1c,
-                     p2n,
-                     p2c)
-        print(d)
+        print(f"{p1n} drew {p1c} | {p2n} drew {p2c}")
 
     def play_game(self):
         cards = self.deck.cards
-        print("beginning War!")
+        print("\n--- Beginning WAR! ---")
         while len(cards) >= 2:
-            m = "q to quit. Any " + \
-                "key to play:"
-            response = input(m)
-            if response == 'q':
+            # AI player may randomly quit
+            if self.p2.is_ai:
+                ai_choice = random()  # value between 0 and 1
+                if ai_choice < 0.1:   # 10% chance to quit
+                    print(f"{self.p2.name} (AI) decided to quit the game!")
+                    break
+                else:
+                    print(f"{self.p2.name} (AI) wants to play this round.")
+
+            # Ask human player to continue
+            response = input("Press Enter to play (or 'q' to quit): ")
+            if response.lower() == 'q':
                 break
+
             p1c = self.deck.rm_card()
             p2c = self.deck.rm_card()
             p1n = self.p1.name
             p2n = self.p2.name
-            self.draw(p1n,
-                      p1c,
-                      p2n,
-                      p2c)
+
+            self.draw(p1n, p1c, p2n, p2c)
+
             if p1c > p2c:
                 self.p1.wins += 1
                 self.wins(self.p1.name)
@@ -113,18 +94,18 @@ class Game:
                 self.p2.wins += 1
                 self.wins(self.p2.name)
 
-        win = self.winner(self.p1,
-                          self.p2)
-        print("War is over.{} wins"
-              .format(win))
+        win = self.winner(self.p1, self.p2)
+        print(f"\n--- War is over. {win} wins! ---")
 
     def winner(self, p1, p2):
         if p1.wins > p2.wins:
             return p1.name
-        if p1.wins < p2.wins:
+        elif p1.wins < p2.wins:
             return p2.name
         return "It was a tie!"
 
 
-game = Game()
-game.play_game()
+if __name__ == "__main__":
+    game = Game()
+    game.play_game()
+ 
