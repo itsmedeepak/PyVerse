@@ -1,4 +1,4 @@
-![hacktoberfestbanner](https://user-images.githubusercontent.com/97526225/194758055-856eebe3-b029-4af2-baea-a2fa138fe1f0.jpeg)
+![hacktoberfestbanner](https://hacktoberfest.com/_next/static/media/logo-hacktoberfest-12--nav.0ac01b46.svg)
 
 ## 🌎 How to contribute to this Repository ?
 
