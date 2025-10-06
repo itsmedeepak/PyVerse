@@ -1,4 +1,4 @@
-# 🚀 PyVerse – Hacktoberfest 2025
+![Hacktoberfest](https://hacktoberfest.com/_next/static/media/logo-hacktoberfest-12--nav.0ac01b46.svg)
 
 **PyVerse is a beginner-friendly project to help you get started with **[**Hacktoberfest 2025**](https://hacktoberfest.com/)**.**\
 If you don’t know where to start, feel free to watch the videos linked below, and read the contribution rules.\
