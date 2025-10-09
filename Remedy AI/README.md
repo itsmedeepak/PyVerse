@@ -36,10 +36,10 @@ remedy-ai-scraper
 
 ## Project Setup
 
-- #### Get your Langchain API Key from signing up [here](https://www.langchain.com/langchain)
-- #### Get your Google API Key [here](https://aistudio.google.com/app/api-keys)
+ Get your Langchain API Key from signing up [here](https://www.langchain.com/langchain)
+ Get your Google API Key [here](https://aistudio.google.com/app/api-keys)
 
-- #### Jump to `remedy-ai-rag` folder
+ Jump to `remedy-ai-rag` folder
 
   Add YOUR_API_KEY in `remedy-ai-rag/.env`
 
@@ -49,19 +49,19 @@ LANGSMITH_TRACING=true
 GOOGLE_API_KEY=your-google-api-key
 ```
 
-- #### Install requirements
+ Install requirements
 
 ```
 pip install -r requirements.txt
 ```
 
-- #### Run your code
+ Run your code
 
 ```
 streamlit run main.py
 ```
 
-#### To run the web scraping script install Scrapy and run the command
+To run the web scraping script install Scrapy and run the command
 
 ```
 scrapy crawl boericke -o remedies.json
