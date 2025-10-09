@@ -37,6 +37,7 @@ remedy-ai-scraper
 ## Project Setup
 
 - #### Get your Langchain API Key from signing up [here](https://www.langchain.com/langchain)
+- #### Get your Google API Key [here](https://aistudio.google.com/app/api-keys)
 
 - #### Jump to `remedy-ai-rag` folder
 
@@ -45,6 +46,7 @@ remedy-ai-scraper
 ```.env
 LANGSMAITH_API_KEY=your-api-key
 LANGSMITH_TRACING=true
+GOOGLE_API_KEY=your-google-api-key
 ```
 
 - #### Install requirements

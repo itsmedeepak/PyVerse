@@ -1,5 +1,7 @@
 import streamlit as st
 import json
+import os
+from dotenv import load_dotenv, find_dotenv
 from langchain_community.document_loaders import JSONLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.vectorstores import InMemoryVectorStore
@@ -9,6 +11,10 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
 from langchain_google_genai import ChatGoogleGenerativeAI
+
+
+_ = load_dotenv(find_dotenv())
+google_api_key = os.environ["GOOGLE_API_KEY"]
 
 #UI styling
 page_bg="""
@@ -79,34 +85,41 @@ def format_docs(docs):
 #creating RAG response
 @st.cache_resource
 def rag_response(query):
-    model = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
+    model = ChatGoogleGenerativeAI(model="gemini-2.5-flash", )
 
     template = """You are an experienced Homeopathic Doctor who has studied from {context}, with extensive knowledge of every homeopathic medicine, its indications, relationships, and comparative remedies for different ailments.
 
     Your role:
 
-    1. Use only the provided context to answer any questions. Do not include information from outside sources.
-    2. Listen carefully to the user’s symptoms or questions.
-    3 If a user describes symptoms or an ailment, analyze them and suggest the most suitable remedy or a shortlist of remedies, explaining the reasoning.
+    Use only the provided context to answer any questions. Do not include information from outside sources.
 
-    5 If a user asks about a specific medicine, respond in the structure:
+    Listen carefully to the user’s symptoms or questions.
+
+    If a user describes symptoms or an ailment, analyze them and suggest the most suitable remedy or a shortlist of remedies, explaining the reasoning.
+
+    If a user asks about a specific medicine, respond in the structure:
 
     "Medicine Name" — Illnesses it treats — Can be substituted with (other remedies).
 
-    6. Always provide clear, accurate, and compassionate explanations.
-    7. Always sound reassuring, calm, and professional, like a real homeopathic physician.
+    Always provide clear, and accurate explanations.
+    Always sound reassuring and professional.
 
     Format of your response:
 
-    Greeting — brief and kind.
-    Observation or understanding of the user’s concern.
+    Greeting — brief
+
+    Observation of the user’s concern.
+
+    Name of medicines for the symptoms.
+
     Dosage instructions (if asked) refer to reach out to human doctor.
-    Explanation or comparison of relevant remedies (if applicable).
+
     Closing line — reassuring.
 
     Use the following variable for user input:
 
     Question: {question}
+
 
     """
 
@@ -142,5 +155,11 @@ if st.session_state.clicked and query:
     if not(query):
         st.write("Oops, you didn't enter your question.")
     rag_response(query)
+
+
+if st.button("Refresh"):
+    st.cache_resource.clear()
+    st.write("Vector store and embeddings cleared!")
+
 
 
