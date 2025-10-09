@@ -1,0 +1,8 @@
+streamlit
+langchain
+langchain-community
+jq
+langchain-google-genai
+langchain-core
+sentence-transformers
+langchain-huggingface
