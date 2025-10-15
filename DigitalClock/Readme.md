@@ -3,7 +3,7 @@
 A simple yet feature-rich Digital Clock built using HTML, CSS, and JavaScript.
 This project displays the current time dynamically and also includes an alarm, timer, stopwatch, and a fun mood selector.
 
-🔗 Live Demo: Digital Clock
+🔗 Live Demo:[ Digital Clock](https://prachichoudhary2004.github.io/DigitalClock/?)
 
 
 
