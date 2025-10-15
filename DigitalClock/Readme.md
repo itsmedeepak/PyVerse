@@ -1,84 +1,43 @@
-Digital Clock
+🕒 Digital Clock
 
-A web-based digital clock application built using HTML, CSS, and JavaScript, featuring a real-time clock, alarm, timer, stopwatch, and mood selection interface.
+A simple yet feature-rich Digital Clock built using HTML, CSS, and JavaScript.
+This project displays the current time dynamically and also includes an alarm, timer, stopwatch, and a fun mood selector.
 
-Live demo: https://prachichoudhary2004.github.io/DigitalClock/
-
-
-Features
-
-Real-time Clock — Displays current time in hours : minutes : seconds.
-
-Alarm — Set an alarm (HH:MM) to get a notification at the chosen time.
-
-Timer — Simple countdown timer you can start, stop, reset.
-
-Stopwatch — A standard stopwatch with start, pause, reset.
-
-Mood Selector — Choose how you’re feeling (“Happy”, “Neutral”, “Sad”) via UI.
-
-Audio Notification — Plays an audio (e.g. audio.mp3) when the alarm triggers.
-
-Folder Structure
-/
-├── index.html
-├── styles.css
-├── script.js
-├── audio.mp3
-└── README.md
+🔗 Live Demo: Digital Clock
 
 
-index.html — The HTML markup and UI layout.
 
-styles.css — Styling for layout, theme, responsiveness.
+📌 Project Overview
 
-script.js — JavaScript logic for clock, alarm, timer, stopwatch, mood UI.
+This project aims to create an interactive and visually clean digital clock that goes beyond showing time — users can:
 
-audio.mp3 — Audio file used for alarm notification.
+View real-time hours, minutes, and seconds
 
-Usage
+Set alarms and receive alerts when time is reached
 
-Clone or download the repo:
+Use a stopwatch (start, pause, reset)
 
-git clone https://github.com/prachichoudhary2004/DigitalClock.git
+Run a countdown timer
 
+Choose their mood (Happy, Neutral, Sad) via UI buttons
 
-Open index.html in a web browser.
+It’s a beginner-friendly front-end project showcasing JavaScript’s handling of real-time updates, DOM manipulation, and event handling.
 
-Use the interface to:
+⚙️ Tech Stack
 
-View the real-time clock.
+HTML5 – for structure
 
-Set an alarm by entering hours and minutes, then triggering “Set Alarm”.
+CSS3 – for styling and layout
 
-Use the timer: input duration (or use default), then start, stop or reset.
+JavaScript (Vanilla) – for all dynamic behavior
 
-Use the stopwatch: start, stop, and reset the count.
+Audio API – for alarm notifications
 
-Select mood (Happy / Neutral / Sad) — this is for UI/UX feedback.
-
-When alarm time is reached, the audio will play (if allowed) and visual feedback will appear.
-
-Technologies Used
-
-HTML5
-
-CSS3
-
-JavaScript (vanilla)
-
-Browser Web APIs (e.g. setInterval, Date, audio playback)
-
-How It Works (Brief Overview)
-
-The real-time clock uses setInterval with Date() to update every second.
-
-The alarm checks each minute (or each second) whether the current time matches the set alarm time, then triggers audio.
-
-The timer is implemented with countdown logic, updating display every second until zero.
-
-The stopwatch counts up in intervals, pausing/resuming as requested.
-
-Mood selection is a simple UI state change (e.g. adding a CSS class) for visual feedback.
-
-
+🧩 Folder Structure
+DigitalClock/
+│
+├── index.html      # Main structure
+├── styles.css      # Styling and animations
+├── script.js       # Logic for clock, timer, alarm, etc.
+├── audio.mp3       # Alarm sound file
+└── README.md       # Project documentation
